@@ -220,5 +220,66 @@
         </div>
       </footer>
     </div>
+
+<script src="https://code.jquery.com/jquery.js"></script>
+<script type = "text/javascript">
+
+$('#submit').on('click', function(event) {
+        event.preventDefault();
+
+//    function addUser() { 
+    var newUser = {
+      name: $("#newUserName").val(),
+      photo: $("#newUserPhoto").val(),
+      choices: [
+        $("#q1").val(),
+        $("#q2").val(),
+        $("#q3").val(),
+        $("#q4").val(),
+        $("#q5").val(),
+        $("#q6").val(),
+        $("#q7").val(),
+        $("#q8").val(),
+        $("#q9").val(),
+        $("#q10").val()
+      ]
+    // };
+   };
+
+   console.log(newUser);
+
+ $.ajax({
+     url: '/api/friends',
+
+     method: 'POST',
+     data: newUser
+
+ }).then(function(data) {
+    if (data)  {
+        alert('Thanks for joining');
+    }
+
+
+    $('#q1').val('');
+    $('#q2').val('');
+    $('#q3').val('');
+    $('#q4').val('');
+    $('#q5').val('');
+    $('#q6').val('');
+    $('#q7').val('');
+    $('#q8').val('');
+    $('#q9').val('');
+    $('#q10').val('');
+
+
+
+
+
+
+
+
+ });
+});
+</script>
   </body>
 </html>
